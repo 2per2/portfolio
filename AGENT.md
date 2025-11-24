@@ -208,4 +208,23 @@ Vite + React + TypeScript 기반의 개인 포트폴리오 웹사이트 프로�
 
 ---
 
+# Commit Message Rules
+
+When generating git commit messages:
+
+- ALWAYS write in Korean.
+- ALWAYS follow the Conventional Commits types:
+  feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert.
+- The commit message should begin with "<type>: <한국어 제목>".
+- Title must be short, imperative, and Korean only.
+- Add an optional Korean body if needed.
+
+Examples:
+
+feat: 새로운 로그인 페이지 추가
+
+fix: OAuth2 리다이렉트 오류 수정
+
+chore: 패키지 버전 업데이트
+
 _이 문서는 AI Agent가 따라야 할 작업 관행과 스타일 가이드를 정리한 문서입니다._
