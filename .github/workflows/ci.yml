@@ -1,68 +1,25 @@
-name: CI
+name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-
+    branches: ["main", "master"]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository (for build source)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # 소스 코드를 가져오는 단계이므로, credentials는 필요 없습니다.
           persist-credentials: false
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Lint (Optional)
-        run: npm run lint
-        continue-on-error: true
-
-      - name: Build Project
+      - name: Build
         run: npm run build
 
-      # *** 중요: 빌드 결과물(dist 폴더)을 아티팩트로 업로드합니다. ***
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
+      # dist 폴더를 pages로 배포
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: deployment-artifact
-          path: dist
-          retention-days: 1
-
-  deploy:
-    # main 또는 master 브랜치에 푸시될 때만 실행
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # *** [최종 수정] Git 컨텍스트와 인증을 동시에 복구합니다. ***
-      - name: Checkout repository (for deploy context)
-        uses: actions/checkout@v4
-        with:
-          # persist-credentials: true 대신 token 속성에 직접 GITHUB_TOKEN을 전달합니다.
-          # 이는 Git 인증이 확실하게 되도록 보장합니다.
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      # 빌드 결과물 다운로드는 Checkout 이후에 실행되어야 합니다.
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: deployment-artifact
-          path: dist # 현재 작업 공간의 dist 폴더로 다운로드 (체크아웃된 소스 코드 위에 덮어씌워짐)
-
-      # *** 인증 문제가 해결된 gh-pages 배포 단계 ***
-      - name: Deploy to GitHub Pages
-        # GH_TOKEN을 환경 변수로 설정하여 인증 문제를 확실하게 합니다.
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+          folder: dist
