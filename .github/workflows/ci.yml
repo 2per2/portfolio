@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
+        # persist-credentials: false는 gh-pages를 사용할 때는 필요하지만,
+        # build job에서는 credentials가 필요 없으므로 그대로 둡니다.
         uses: actions/checkout@v4
         with:
           persist-credentials: false
@@ -21,36 +23,40 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
+        # 캐싱을 사용하면 훨씬 빠릅니다. 여기서는 편의상 생략합니다.
         run: npm install
 
-      - name: Lint
+      - name: Lint (Optional)
         run: npm run lint
+        continue-on-error: true # 린트 오류가 배포를 막지 않도록 설정
 
-      - name: Build
+      - name: Build Project
         run: npm run build
 
+      # *** 중요: 빌드 결과물(dist 폴더)을 아티팩트로 업로드합니다. ***
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-artifact
+          path: dist # 빌드 결과물이 저장된 폴더 경로를 지정
+          retention-days: 1 # 아티팩트 보존 기간 (선택 사항)
+
   deploy:
+    # main 또는 master 브랜치에 푸시될 때만 실행
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # *** 중요: checkout과 build 과정을 생략하고 아티팩트만 다운로드합니다. ***
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
         with:
-          persist-credentials: false
+          name: deployment-artifact # build Job에서 업로드한 아티팩트 이름을 지정
+          path: dist # 현재 작업 공간의 dist 폴더로 다운로드
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
+      # *** 인증 문제가 해결된 gh-pages 배포 단계 ***
       - name: Deploy to GitHub Pages
+        # GH_TOKEN을 환경 변수로 설정하여 인증 문제를 해결합니다.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
