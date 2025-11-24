@@ -12,80 +12,45 @@ interface ProjectsProps {
  * Projects 컴포넌트
  * 프로젝트 목록을 카드 형태로 표시함
  */
-export function Projects({ projects }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
+export function Projects() {
+  const data = [
+    {
+      title: "ADHD Tracker Service",
+      type: "Microservices Project",
+      desc: "ADHD 환자를 위한 웹 서비스입니다. ... Spring Cloud Gateway ... K8s HPA ...",
+      techs: ["Spring Boot", "Spring Cloud Gateway", "Kubernetes", "MSA"],
+      img: "http://googleusercontent.com/image_collection/image_retrieval/1766262650876846563"
+    },
+    // 더 추가... 실제로는 props/data 연동 추천
+  ];
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white"
-        >
-          Projects
-        </motion.h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => setSelectedProject(project)}
-            >
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-                {project.title}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
+    <section id="projects" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto fade-in-section">
+        <div className="flex items-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-light-heading dark:text-dark-heading mr-4">
+            <span className="text-light-primary dark:text-dark-primary font-mono text-xl mr-2">03.</span> Where I've Built
+          </h2>
+          <div className="h-px bg-gray-300 dark:bg-gray-700 flex-grow max-w-xs"></div>
+        </div>
+        <div className="space-y-24">
+          {data.map((p, i) => (
+            <div key={i} className={`flex flex-col md:flex-row md:items-center gap-10 ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+              <div className="md:w-1/2 space-y-3">
+                <p className="font-mono text-light-primary dark:text-dark-primary text-sm">{p.type}</p>
+                <h3 className="text-2xl font-bold text-light-heading dark:text-dark-heading mb-2">{p.title}</h3>
+                <div className="bg-light-card dark:bg-dark-card p-6 rounded shadow-card mb-4 text-base">{p.desc}</div>
+                <ul className="flex flex-wrap gap-3 font-mono text-xs text-gray-500 dark:text-slate-400 mb-5">{p.techs.map(t => <li key={t} className="px-2 py-1 rounded bg-purple-100 dark:bg-purple-900/30">{t}</li>)}</ul>
+                <div className="flex gap-5 text-xl text-light-heading dark:text-dark-heading">
+                  <a href="#" className="hover:text-light-primary dark:hover:text-dark-primary"><i className="fa-brands fa-github"></i></a>
+                  <a href="#" className="hover:text-light-primary dark:hover:text-dark-primary"><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
               </div>
-              <div className="flex gap-2">
-                {project.githubUrl && (
-                  <Button
-                    href={project.githubUrl}
-                    target="_blank"
-                    variant="outline"
-                    size="sm"
-                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                  >
-                    GitHub
-                  </Button>
-                )}
-                {project.demoUrl && (
-                  <Button
-                    href={project.demoUrl}
-                    target="_blank"
-                    size="sm"
-                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                  >
-                    Demo
-                  </Button>
-                )}
+              <div className="md:w-1/2 min-h-[240px] overflow-hidden flex items-center rounded-xl border border-gray-300 dark:border-gray-700 shadow-card">
+                <img src={p.img} alt="Project Screenshot" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" />
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-        <ProjectDetailModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
       </div>
     </section>
   );

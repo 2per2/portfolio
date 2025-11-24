@@ -29,11 +29,11 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white focus:ring-blue-500",
+      "bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-400 text-white focus:ring-purple-400 dark:focus:ring-purple-300",
     secondary:
-      "bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 focus:ring-gray-500",
+      "bg-purple-100 hover:bg-purple-200 dark:bg-purple-900 dark:hover:bg-purple-800 text-purple-800 dark:text-purple-200 focus:ring-purple-300 dark:focus:ring-purple-900",
     outline:
-      "border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 focus:ring-blue-500",
+      "border-2 border-purple-600 dark:border-purple-400 text-purple-700 dark:text-purple-200 hover:bg-purple-50 dark:hover:bg-purple-950 focus:ring-purple-400 dark:focus:ring-purple-500",
   };
 
   const sizeStyles = {

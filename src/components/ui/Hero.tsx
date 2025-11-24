@@ -10,64 +10,25 @@ interface HeroProps {
  * Hero 컴포넌트
  * 메인 섹션으로 이름, 직업, 소개를 표시함
  */
-export function Hero({ data }: HeroProps) {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+export function Hero() {
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-20"
-    >
-      <div className="container mx-auto px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4"
-        >
-          안녕하세요, {data.name}입니다
-        </motion.h1>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl md:text-4xl text-blue-600 dark:text-blue-400 mb-6"
-        >
-          {data.title}
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
-        >
-          {data.bio}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex gap-4 justify-center flex-wrap"
-        >
-          <Button onClick={() => scrollToSection("projects")} size="lg">
-            프로젝트 보기
-          </Button>
-          <Button
-            onClick={() => scrollToSection("contact")}
-            variant="outline"
-            size="lg"
-          >
-            연락하기
-          </Button>
-        </motion.div>
+    <section className="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div className="max-w-5xl w-full fade-in-section is-visible">
+        <p className="text-light-primary dark:text-dark-primary font-mono mb-5 text-lg">Hi, my name is</p>
+        <h1 className="text-5xl md:text-7xl font-bold text-light-heading dark:text-dark-heading mb-4 tracking-tight">
+          [본인 이름].
+        </h1>
+        <h2 className="text-4xl md:text-6xl font-bold text-light-text/70 dark:text-dark-text/80 mb-8 leading-tight">
+          I build scalable backend systems.
+        </h2>
+        <p className="max-w-xl text-lg text-light-text dark:text-dark-text mb-12 leading-relaxed">
+          안정성과 확장성을 최우선으로 고려하는 백엔드 개발자입니다.<br />
+          분산 시스템 설계 및 IoT 통합 솔루션 개발 경험을 바탕으로, <br />
+          <span className="text-light-primary dark:text-dark-primary font-semibold">Spring Cloud Gateway</span>와 <span className="text-light-primary dark:text-dark-primary font-semibold">Kubernetes</span>를 활용한 복잡한 아키텍처 문제를 해결합니다.
+        </p>
+        <a href="#projects" className="inline-block px-8 py-4 border border-light-primary dark:border-dark-primary text-light-primary dark:text-dark-primary font-mono rounded hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 transition-colors text-lg">
+          Check out my work!
+        </a>
       </div>
     </section>
   );
