@@ -10,7 +10,7 @@ export function Philosophy() {
             <div className="text-light-primary dark:text-dark-primary text-3xl mb-4"><i className="fa-solid fa-handshake-angle"></i></div>
             <h3 className="text-xl font-bold mb-4 text-center">Effective Collaboration</h3>
             <p className="text-light-text dark:text-dark-text leading-relaxed text-center">
-              "투명한 정보 공유"와 "기술적 합의"를 중시합니다. ...
+              &quot;투명한 정보 공유&quot;와 &quot;기술적 합의&quot;를 중시합니다. ...
             </p>
           </div>
           <div className="bg-light-card dark:bg-dark-card p-8 rounded border-t-4 border-light-primary dark:border-dark-primary shadow-card flex flex-col items-center hover:scale-105 transition-all duration-300">

@@ -1,39 +1,21 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "../common/Button";
 import type { Project } from "../../types/portfolio";
-import { ProjectDetailModal } from "./ProjectDetailModal";
-
-interface ProjectsProps {
-  projects: Project[];
-}
 
 /**
  * Projects 컴포넌트
  * 프로젝트 목록을 카드 형태로 표시함
  */
-export function Projects() {
-  const data = [
-    {
-      title: "ADHD Tracker Service",
-      type: "Microservices Project",
-      desc: "ADHD 환자를 위한 웹 서비스입니다. ... Spring Cloud Gateway ... K8s HPA ...",
-      techs: ["Spring Boot", "Spring Cloud Gateway", "Kubernetes", "MSA"],
-      img: "http://googleusercontent.com/image_collection/image_retrieval/1766262650876846563"
-    },
-    // 더 추가... 실제로는 props/data 연동 추천
-  ];
+export function Projects({ projects }: { projects: Project[] }) {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-5xl mx-auto fade-in-section">
         <div className="flex items-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-light-heading dark:text-dark-heading mr-4">
-            <span className="text-light-primary dark:text-dark-primary font-mono text-xl mr-2">03.</span> Where I've Built
+            <span className="text-light-primary dark:text-dark-primary font-mono text-xl mr-2">03.</span> Where I&apos;ve Built
           </h2>
           <div className="h-px bg-gray-300 dark:bg-gray-700 flex-grow max-w-xs"></div>
         </div>
         <div className="space-y-24">
-          {data.map((p, i) => (
+          {projects.map((p, i) => (
             <div key={i} className={`flex flex-col md:flex-row md:items-center gap-10 ${i % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
               <div className="md:w-1/2 space-y-3">
                 <p className="font-mono text-light-primary dark:text-dark-primary text-sm">{p.type}</p>

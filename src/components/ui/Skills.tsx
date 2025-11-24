@@ -1,22 +1,16 @@
-import { motion } from "framer-motion";
 import type { Skill } from "../../types/portfolio";
-
-interface SkillsProps {
-  skills: Skill[];
-}
 
 /**
  * Skills 컴포넌트
  * 기술 스택을 카테고리별로 표시함
  */
-export function Skills() {
-  const categories = ["Languages", "Frameworks", "Database", "DevOps"];
-  const skillsMap: Record<string, string[]> = {
-    Languages: ["Java", "Python", "TypeScript"],
-    Frameworks: ["Spring Boot", "Spring Cloud", "Spring Security"],
-    Database: ["MariaDB", "JPA/Hibernate", "Redis"],
-    DevOps: ["Kubernetes (K8s)", "Docker", "PySerial"],
-  };
+export function Skills({ skills }: { skills: Skill[] }) {
+  // Group skills by category
+  const categories = Array.from(new Set(skills.map((s) => s.category)));
+  const skillsMap: Record<string, Skill[]> = {};
+  categories.forEach((cat) => {
+    skillsMap[cat] = skills.filter((s) => s.category === cat);
+  });
   return (
     <section id="skills" className="py-24 px-6 bg-purple-50 dark:bg-[#160d35]">
       <div className="max-w-4xl mx-auto fade-in-section">
@@ -39,8 +33,8 @@ export function Skills() {
                 {cat}
               </h3>
               <ul className="font-mono text-sm text-light-text dark:text-dark-text space-y-1 text-center">
-                {(skillsMap[cat] as string[]).map((s: string, idx: number) => (
-                  <li key={idx}>{s}</li>
+                {skillsMap[cat].map((s, idx) => (
+                  <li key={idx}>{s.name}</li>
                 ))}
               </ul>
             </div>

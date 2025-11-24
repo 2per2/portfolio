@@ -1,21 +1,15 @@
-import { motion } from "framer-motion";
-import { Button } from "../common/Button";
 import type { ContactInfo } from "../../types/portfolio";
-
-interface ContactProps {
-  contact: ContactInfo;
-}
 
 /**
  * Contact 컴포넌트
  * 연락처 정보를 표시함
  */
-export function Contact() {
+export function Contact({ contact }: { contact: ContactInfo }) {
   return (
     <section id="contact" className="py-32 px-6 text-center">
       <div className="max-w-2xl mx-auto fade-in-section">
         <p className="text-light-primary dark:text-dark-primary font-mono mb-6">
-          05. What's Next?
+          05. What&apos;s Next?
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-light-heading dark:text-dark-heading mb-6">
           Get In Touch
@@ -25,6 +19,9 @@ export function Contact() {
           기회를 찾고 있습니다.
           <br />
           언제든 연락주시면 빠르게 회신 드리겠습니다.
+        </p>
+        <p className="mt-4 text-sm text-light-text dark:text-dark-text">
+          이메일: {contact.email ?? "contact@email.com"}
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <a

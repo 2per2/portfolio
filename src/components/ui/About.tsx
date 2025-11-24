@@ -1,15 +1,10 @@
-import { motion } from "framer-motion";
 import type { PortfolioData } from "../../types/portfolio";
-
-interface AboutProps {
-  data: Pick<PortfolioData, "about">;
-}
 
 /**
  * About 컴포넌트
  * 자기소개 및 경력을 표시함
  */
-export function About() {
+export function About({ data: _data }: { data: Pick<PortfolioData, "about"> }) {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-4xl mx-auto fade-in-section">
