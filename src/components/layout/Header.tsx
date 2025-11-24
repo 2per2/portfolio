@@ -14,7 +14,7 @@ export function Header() {
   return (
     <nav className="fixed w-full z-50 h-20 backdrop-blur bg-white/90 dark:bg-[#160d35]/95 border-b border-light-primary/15 dark:border-dark-primary/20 shadow-sm transition-all duration-300" id="navbar">
       <div className="max-w-6xl mx-auto px-6 h-full flex justify-between items-center">
-        <a href="#" className="text-light-primary dark:text-dark-primary font-mono text-xl font-bold border-2 border-light-primary dark:border-dark-primary p-1 rounded hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 transition-colors">
+        <a href="#" className="text-light-primary dark:text-[#d8b4fe] font-mono text-xl font-bold border-2 border-light-primary dark:border-[#d8b4fe] p-1 rounded hover:bg-light-primary/10 dark:hover:bg-[#d8b4fe]/10 transition-colors">
           B.Dev
         </a>
         <div className="flex items-center gap-8">
@@ -23,9 +23,9 @@ export function Header() {
               <button
                 key={n.id}
                 onClick={() => scrollTo(n.id)}
-                className="hover:text-light-primary dark:hover:text-dark-primary transition-colors"
+                className="hover:text-light-primary dark:hover:text-[#d8b4fe] transition-colors"
               >
-                <span className="text-light-primary dark:text-dark-primary">{("0" + (i + 1)).slice(-2)}.</span> {n.title}
+                <span className="text-light-primary dark:text-[#d8b4fe]">{("0" + (i + 1)).slice(-2)}.</span> {n.title}
               </button>
             ))}
           </div>

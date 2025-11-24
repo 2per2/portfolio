@@ -5,11 +5,9 @@ import type { PortfolioData } from "../types/portfolio";
  */
 export const portfolioData: PortfolioData = {
   name: "홍길동",
-  title: "프론트엔드 개발자",
-  bio: "사용자 경험을 중시하는 프론트엔드 개발자입니다",
-  about: `안녕하세요! 프론트엔드 개발자로 일하고 있습니다.
-React와 TypeScript를 주로 사용하며, 사용자 경험을 최우선으로 생각합니다.
-깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.`,
+  title: "백엔드 개발자",
+  bio: "안정성과 확장성을 최우선으로 생각하는 백엔드 개발자입니다.",
+  about: `안녕하세요! 컴퓨터/소프트웨어 공학을 전공하고 백엔드 개발자로서 커리어를 쌓아가고 있습니다. MSA와 인프라 경험이 있습니다.`,
   skills: [
     {
       name: "React",
@@ -69,27 +67,37 @@ React와 TypeScript를 주로 사용하며, 사용자 경험을 최우선으로 
   projects: [
     {
       id: "1",
-      title: "포트폴리오 웹사이트",
-      description: "React와 TypeScript로 만든 개인 포트폴리오 웹사이트입니다",
-      technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
-      githubUrl: "https://github.com",
-      demoUrl: "https://example.com",
+      title: "ADHD Tracker Service",
+      category: "Microservices Project",
+      shortDescription: "Spring Cloud Gateway와 K8s를 활용한 ADHD 환자 케어 서비스.",
+      fullDescription: `ADHD 환자를 위한 웹 서비스. Spring Cloud Gateway를 도입하여 JWT 인증을 게이트웨이 단에서 선처리.\nK8s HPA(Horizontal Pod Autoscaler)를 통해 자동 스케일링 최적화. 시스템 안정성 40% 향상.`,
+      techStack: ["Spring Boot", "Spring Cloud Gateway", "Kubernetes", "MSA"],
+      image: "http://googleusercontent.com/image_collection/image_retrieval/1766262650876846563",
+      githubUrl: "#",
+      demoUrl: "#"
     },
     {
       id: "2",
-      title: "할일 관리 앱",
-      description: "로컬 스토리지를 활용한 할일 관리 웹 애플리케이션",
-      technologies: ["React", "TypeScript", "LocalStorage"],
-      githubUrl: "https://github.com",
+      title: "IAmHere: Attendance System",
+      category: "IoT Integration Project",
+      shortDescription: "지문 인식 및 블루투스 복합 인증 출석 시스템.",
+      fullDescription: `지문 인식 기반 시스템에 블루투스 기반 실시간 체크를 결합.\n라즈베리파이 시리얼 포트(ttyAMA0) 충돌은 miniUART 방식 도입으로 해결. 하드웨어/소프트웨어 충돌 극복 사례.`,
+      techStack: ["Raspberry Pi", "Python", "PySerial", "Bluetooth"],
+      image: "http://googleusercontent.com/image_collection/image_retrieval/3245084354626528323",
+      githubUrl: "#",
+      demoUrl: "#"
     },
     {
       id: "3",
-      title: "날씨 앱",
-      description: "실시간 날씨 정보를 제공하는 웹 애플리케이션",
-      technologies: ["React", "API", "CSS"],
-      githubUrl: "https://github.com",
-      demoUrl: "https://example.com",
-    },
+      title: "Rooton MSA Auth",
+      category: "Auth System Pivot",
+      shortDescription: "Ingress 한계를 극복하고 Gateway로 피벗한 인증 시스템 구축 사례.",
+      fullDescription: `초기 K8s Ingress에서 JWT 인증을 처리했으나 확장성 한계 발견.\nSpring Cloud Gateway로 전략을 피벗하며 인증 인프라를 중앙집중화.`,
+      techStack: ["Kubernetes Ingress", "OAuth 2.0", "Spring Cloud Gateway"],
+      image: "http://googleusercontent.com/image_collection/image_retrieval/8055825312678659104",
+      githubUrl: "#",
+      demoUrl: "#"
+    }
   ],
   contact: {
     email: "example@email.com",

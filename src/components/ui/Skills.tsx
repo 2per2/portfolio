@@ -16,7 +16,7 @@ export function Skills({ skills }: { skills: Skill[] }) {
       <div className="max-w-4xl mx-auto fade-in-section">
         <div className="flex items-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-light-heading dark:text-dark-heading mr-4">
-            <span className="text-light-primary dark:text-dark-primary font-mono text-xl mr-2">
+            <span className="text-light-primary dark:text-[#d8b4fe] font-mono text-xl mr-2">
               02.
             </span>{" "}
             Tech Stack

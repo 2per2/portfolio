@@ -5,11 +5,13 @@
 export interface Project {
   id: string;
   title: string;
-  description: string;
-  technologies: string[];
+  category: string; // ex: Microservices Project 등 분류
+  shortDescription: string; // 카드용 짧은 설명
+  fullDescription: string;  // 모달용 긴 설명
+  techStack: string[];
+  image: string;
   githubUrl?: string;
   demoUrl?: string;
-  imageUrl?: string;
 }
 
 export interface Skill {

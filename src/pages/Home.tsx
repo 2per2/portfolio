@@ -3,6 +3,7 @@ import { About } from "../components/ui/About";
 import { Skills } from "../components/ui/Skills";
 import { Projects } from "../components/ui/Projects";
 import { Contact } from "../components/ui/Contact";
+import { Philosophy } from "../components/ui/Philosophy";
 import { portfolioData } from "../data/portfolioData";
 
 /**
@@ -16,6 +17,7 @@ export function Home() {
       <About data={portfolioData} />
       <Skills skills={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />
+      <Philosophy />
       <Contact contact={portfolioData.contact} />
     </>
   );

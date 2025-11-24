@@ -8,7 +8,7 @@ export function Contact({ contact }: { contact: ContactInfo }) {
   return (
     <section id="contact" className="py-32 px-6 text-center">
       <div className="max-w-2xl mx-auto fade-in-section">
-        <p className="text-light-primary dark:text-dark-primary font-mono mb-6">
+        <p className="text-light-primary dark:text-[#d8b4fe] font-mono mb-6">
           05. What&apos;s Next?
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-light-heading dark:text-dark-heading mb-6">
@@ -26,7 +26,7 @@ export function Contact({ contact }: { contact: ContactInfo }) {
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <a
             href="mailto:contact@email.com"
-            className="px-8 py-4 border border-light-primary dark:border-dark-primary bg-light-primary/10 dark:bg-dark-primary/10 text-light-primary dark:text-dark-primary font-mono rounded hover:bg-light-primary/20 dark:hover:bg-dark-primary/20 transition-colors"
+            className="px-8 py-4 border border-light-primary dark:border-[#d8b4fe] bg-light-primary/10 dark:bg-[#d8b4fe]/10 text-light-primary dark:text-[#d8b4fe] font-mono rounded hover:bg-light-primary/20 dark:hover:bg-[#d8b4fe]/20 transition-colors"
           >
             Say Hello
           </a>
