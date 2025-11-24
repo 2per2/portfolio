@@ -1,5 +1,3 @@
-import React from 'react'
-
 /**
  * Footer 컴포넌트
  * 저작권 정보를 표시함

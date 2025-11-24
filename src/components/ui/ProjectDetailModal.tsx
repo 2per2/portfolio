@@ -1,4 +1,3 @@
-import React from 'react'
 import type { Project } from '../../types/portfolio'
 import { Button } from '../common/Button'
 

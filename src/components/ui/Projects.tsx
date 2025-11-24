@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '../common/Button'
 import type { Project } from '../../types/portfolio'

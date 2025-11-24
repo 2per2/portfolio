@@ -1,4 +1,3 @@
-import React from 'react'
 import { Hero } from '../components/ui/Hero'
 import { About } from '../components/ui/About'
 import { Skills } from '../components/ui/Skills'
