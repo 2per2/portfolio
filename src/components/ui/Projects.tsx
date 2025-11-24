@@ -63,7 +63,7 @@ export function Projects({ projects }: ProjectsProps) {
                     target="_blank"
                     variant="outline"
                     size="sm"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
                   >
                     GitHub
                   </Button>
@@ -73,7 +73,7 @@ export function Projects({ projects }: ProjectsProps) {
                     href={project.demoUrl}
                     target="_blank"
                     size="sm"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e: React.MouseEvent) => e.stopPropagation()}
                   >
                     Demo
                   </Button>
