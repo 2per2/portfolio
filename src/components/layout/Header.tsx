@@ -12,7 +12,10 @@ export function Header() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <nav className="fixed w-full z-50 h-20 backdrop-blur bg-white/90 dark:bg-[#160d35]/95 border-b border-light-primary/15 dark:border-dark-primary/20 shadow-sm transition-all duration-300" id="navbar">
+    <nav
+      className="fixed w-full z-50 h-20 backdrop-blur-md bg-white/10 dark:bg-[#0f0720]/15 border-b border-white/30 dark:border-white/10 shadow-sm transition-all duration-300"
+      id="navbar"
+    >
       <div className="max-w-6xl mx-auto px-6 h-full flex justify-between items-center">
         <a href="#" className="text-light-primary dark:text-[#d8b4fe] font-mono text-xl font-bold border-2 border-light-primary dark:border-[#d8b4fe] p-1 rounded hover:bg-light-primary/10 dark:hover:bg-[#d8b4fe]/10 transition-colors">
           B.Dev
