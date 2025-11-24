@@ -62,14 +62,7 @@ export function Skills({ skills }: SkillsProps) {
                   {categorySkills.map((skill, index) => (
                     <div key={index}>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                          {skill.icon && (
-                            <img
-                              src={skill.icon}
-                              alt={skill.name + " 로고"}
-                              className="w-5 h-5 inline-block"
-                            />
-                          )}
+                        <span className="text-sm text-gray-700 dark:text-gray-300">
                           {skill.name}
                         </span>
                         <span className="text-xs text-gray-500 dark:text-gray-400 capitalize">

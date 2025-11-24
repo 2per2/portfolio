@@ -11,60 +11,15 @@ export const portfolioData: PortfolioData = {
 React와 TypeScript를 주로 사용하며, 사용자 경험을 최우선으로 생각합니다.
 깔끔하고 직관적인 인터페이스를 만드는 것을 좋아합니다.`,
   skills: [
-    {
-      name: "React",
-      level: "advanced",
-      category: "frontend",
-      icon: "/icons/react.svg",
-    },
-    {
-      name: "TypeScript",
-      level: "advanced",
-      category: "frontend",
-      icon: "/icons/typescript.svg",
-    },
-    {
-      name: "JavaScript",
-      level: "advanced",
-      category: "frontend",
-      icon: "/icons/javascript.svg",
-    },
-    {
-      name: "HTML/CSS",
-      level: "advanced",
-      category: "frontend",
-      icon: "/icons/htmlcss.svg",
-    },
-    {
-      name: "TailwindCSS",
-      level: "intermediate",
-      category: "frontend",
-      icon: "/icons/tailwindcss.svg",
-    },
-    {
-      name: "Node.js",
-      level: "intermediate",
-      category: "backend",
-      icon: "/icons/nodejs.svg",
-    },
-    {
-      name: "Express",
-      level: "intermediate",
-      category: "backend",
-      icon: "/icons/express.svg",
-    },
-    {
-      name: "Git",
-      level: "advanced",
-      category: "tool",
-      icon: "/icons/git.svg",
-    },
-    {
-      name: "Vite",
-      level: "intermediate",
-      category: "tool",
-      icon: "/icons/vite.svg",
-    },
+    { name: "React", level: "advanced", category: "frontend" },
+    { name: "TypeScript", level: "advanced", category: "frontend" },
+    { name: "JavaScript", level: "advanced", category: "frontend" },
+    { name: "HTML/CSS", level: "advanced", category: "frontend" },
+    { name: "TailwindCSS", level: "intermediate", category: "frontend" },
+    { name: "Node.js", level: "intermediate", category: "backend" },
+    { name: "Express", level: "intermediate", category: "backend" },
+    { name: "Git", level: "advanced", category: "tool" },
+    { name: "Vite", level: "intermediate", category: "tool" },
   ],
   projects: [
     {

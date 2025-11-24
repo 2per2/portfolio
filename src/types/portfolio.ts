@@ -16,7 +16,6 @@ export interface Skill {
   name: string;
   level: "beginner" | "intermediate" | "advanced";
   category: "frontend" | "backend" | "tool" | "other";
-  icon?: string; // 기술 로고 경로 또는 아이콘
 }
 
 export interface ContactInfo {
