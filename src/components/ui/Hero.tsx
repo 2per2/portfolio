@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
-import { Button } from '../common/Button'
-import type { PortfolioData } from '../../types/portfolio'
+import { motion } from "framer-motion";
+import { Button } from "../common/Button";
+import type { PortfolioData } from "../../types/portfolio";
 
 interface HeroProps {
-  data: Pick<PortfolioData, 'name' | 'title' | 'bio'>
+  data: Pick<PortfolioData, "name" | "title" | "bio">;
 }
 
 /**
@@ -12,14 +12,17 @@ interface HeroProps {
  */
 export function Hero({ data }: HeroProps) {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-20">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-20"
+    >
       <div className="container mx-auto px-4 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +32,7 @@ export function Hero({ data }: HeroProps) {
         >
           안녕하세요, {data.name}입니다
         </motion.h1>
-        
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +41,7 @@ export function Hero({ data }: HeroProps) {
         >
           {data.title}
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,22 +50,25 @@ export function Hero({ data }: HeroProps) {
         >
           {data.bio}
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex gap-4 justify-center flex-wrap"
         >
-          <Button onClick={() => scrollToSection('projects')} size="lg">
+          <Button onClick={() => scrollToSection("projects")} size="lg">
             프로젝트 보기
           </Button>
-          <Button onClick={() => scrollToSection('contact')} variant="outline" size="lg">
+          <Button
+            onClick={() => scrollToSection("contact")}
+            variant="outline"
+            size="lg"
+          >
             연락하기
           </Button>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

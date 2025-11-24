@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
-import { Button } from '../common/Button'
-import type { ContactInfo } from '../../types/portfolio'
+import { motion } from "framer-motion";
+import { Button } from "../common/Button";
+import type { ContactInfo } from "../../types/portfolio";
 
 interface ContactProps {
-  contact: ContactInfo
+  contact: ContactInfo;
 }
 
 /**
@@ -23,7 +23,7 @@ export function Contact({ contact }: ContactProps) {
         >
           Contact
         </motion.h2>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,15 +34,12 @@ export function Contact({ contact }: ContactProps) {
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
             궁금한 점이 있으시면 언제든지 연락주세요
           </p>
-          
+
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Button
-              href={`mailto:${contact.email}`}
-              size="lg"
-            >
+            <Button href={`mailto:${contact.email}`} size="lg">
               📧 {contact.email}
             </Button>
-            
+
             {contact.github && (
               <Button
                 href={contact.github}
@@ -53,7 +50,7 @@ export function Contact({ contact }: ContactProps) {
                 GitHub
               </Button>
             )}
-            
+
             {contact.linkedin && (
               <Button
                 href={contact.linkedin}
@@ -64,7 +61,7 @@ export function Contact({ contact }: ContactProps) {
                 LinkedIn
               </Button>
             )}
-            
+
             {contact.blog && (
               <Button
                 href={contact.blog}
@@ -79,6 +76,5 @@ export function Contact({ contact }: ContactProps) {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

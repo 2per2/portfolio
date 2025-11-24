@@ -1,22 +1,25 @@
-import type { Project } from '../../types/portfolio'
-import { Button } from '../common/Button'
+import type { Project } from "../../types/portfolio";
+import { Button } from "../common/Button";
 
 interface ProjectDetailModalProps {
-  project: Project | null
-  onClose: () => void
+  project: Project | null;
+  onClose: () => void;
 }
 
 /**
  * ProjectDetailModal 컴포넌트
  * 프로젝트 상세 정보를 모달로 표시함
  */
-export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps) {
-  if (!project) return null
+export function ProjectDetailModal({
+  project,
+  onClose,
+}: ProjectDetailModalProps) {
+  if (!project) return null;
 
   // 외부 클릭 시 닫힘 처리
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) onClose()
-  }
+    if (e.target === e.currentTarget) onClose();
+  };
 
   return (
     <div
@@ -31,10 +34,18 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
         >
           ×
         </button>
-        <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h2>
-        <p className="mb-4 text-gray-700 dark:text-gray-300">{project.description}</p>
+        <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+          {project.title}
+        </h2>
+        <p className="mb-4 text-gray-700 dark:text-gray-300">
+          {project.description}
+        </p>
         {project.imageUrl && (
-          <img src={project.imageUrl} alt={project.title} className="mb-4 rounded-lg w-full object-cover h-48" />
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="mb-4 rounded-lg w-full object-cover h-48"
+          />
         )}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech, idx) => (
@@ -48,7 +59,12 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
         </div>
         <div className="flex gap-2 mb-2">
           {project.githubUrl && (
-            <Button href={project.githubUrl} target="_blank" variant="outline" size="sm">
+            <Button
+              href={project.githubUrl}
+              target="_blank"
+              variant="outline"
+              size="sm"
+            >
               GitHub
             </Button>
           )}
@@ -60,6 +76,5 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
         </div>
       </div>
     </div>
-  )
+  );
 }
-

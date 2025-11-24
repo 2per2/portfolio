@@ -1,9 +1,9 @@
-import { Hero } from '../components/ui/Hero'
-import { About } from '../components/ui/About'
-import { Skills } from '../components/ui/Skills'
-import { Projects } from '../components/ui/Projects'
-import { Contact } from '../components/ui/Contact'
-import { portfolioData } from '../data/portfolioData'
+import { Hero } from "../components/ui/Hero";
+import { About } from "../components/ui/About";
+import { Skills } from "../components/ui/Skills";
+import { Projects } from "../components/ui/Projects";
+import { Contact } from "../components/ui/Contact";
+import { portfolioData } from "../data/portfolioData";
 
 /**
  * Home 페이지 컴포넌트
@@ -18,6 +18,5 @@ export function Home() {
       <Projects projects={portfolioData.projects} />
       <Contact contact={portfolioData.contact} />
     </>
-  )
+  );
 }
-

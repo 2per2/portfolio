@@ -3,7 +3,7 @@
  * 저작권 정보를 표시함
  */
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
@@ -11,6 +11,5 @@ export function Footer() {
         <p>&copy; {currentYear} Portfolio. All rights reserved.</p>
       </div>
     </footer>
-  )
+  );
 }
-

@@ -1,27 +1,27 @@
-import { motion } from 'framer-motion'
-import { useTheme } from '../../hooks/useTheme'
+import { motion } from "framer-motion";
+import { useTheme } from "../../hooks/useTheme";
 
 /**
  * Header 컴포넌트
  * 네비게이션 바와 다크모드 토글을 포함함
  */
 export function Header() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const navItems = [
-    { id: 'hero', label: '홈' },
-    { id: 'about', label: '소개' },
-    { id: 'skills', label: '기술' },
-    { id: 'projects', label: '프로젝트' },
-    { id: 'contact', label: '연락처' },
-  ]
+    { id: "hero", label: "홈" },
+    { id: "about", label: "소개" },
+    { id: "skills", label: "기술" },
+    { id: "projects", label: "프로젝트" },
+    { id: "contact", label: "연락처" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
@@ -58,10 +58,9 @@ export function Header() {
           className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
           aria-label="테마 전환"
         >
-          {theme === 'light' ? '🌙' : '☀️'}
+          {theme === "light" ? "🌙" : "☀️"}
         </motion.button>
       </nav>
     </header>
-  )
+  );
 }
-

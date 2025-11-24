@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
-import type { PortfolioData } from '../../types/portfolio'
+import { motion } from "framer-motion";
+import type { PortfolioData } from "../../types/portfolio";
 
 interface AboutProps {
-  data: Pick<PortfolioData, 'about'>
+  data: Pick<PortfolioData, "about">;
 }
 
 /**
@@ -22,7 +22,7 @@ export function About({ data }: AboutProps) {
         >
           About
         </motion.h2>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,6 +34,5 @@ export function About({ data }: AboutProps) {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

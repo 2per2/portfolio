@@ -1,12 +1,12 @@
-import { createContext, useState, useEffect, ReactNode } from 'react'
-import type { Theme, ThemeContextType } from '../types/theme'
+import { createContext, useState, useEffect, ReactNode } from "react";
+import type { Theme, ThemeContextType } from "../types/theme";
 
-const THEME_STORAGE_KEY = 'portfolio-theme'
+const THEME_STORAGE_KEY = "portfolio-theme";
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 interface ThemeProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 /**
@@ -15,30 +15,34 @@ interface ThemeProviderProps {
  */
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null
-    return savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-  })
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+    return (
+      savedTheme ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light")
+    );
+  });
 
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark')
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
     } else {
-      root.classList.remove('dark')
+      root.classList.remove("dark");
     }
-    localStorage.setItem(THEME_STORAGE_KEY, theme)
-  }, [theme])
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
-  }
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
-  )
+  );
 }
 
-export { ThemeContext }
-
+export { ThemeContext };

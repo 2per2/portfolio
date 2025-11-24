@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
-import type { Skill } from '../../types/portfolio'
+import { motion } from "framer-motion";
+import type { Skill } from "../../types/portfolio";
 
 interface SkillsProps {
-  skills: Skill[]
+  skills: Skill[];
 }
 
 /**
@@ -10,23 +10,23 @@ interface SkillsProps {
  * 기술 스택을 카테고리별로 표시함
  */
 export function Skills({ skills }: SkillsProps) {
-  const categories = ['frontend', 'backend', 'tool', 'other'] as const
+  const categories = ["frontend", "backend", "tool", "other"] as const;
   const categoryLabels = {
-    frontend: 'Frontend',
-    backend: 'Backend',
-    tool: 'Tools',
-    other: 'Other',
-  }
+    frontend: "Frontend",
+    backend: "Backend",
+    tool: "Tools",
+    other: "Other",
+  };
 
   const levelColors = {
-    beginner: 'bg-yellow-500',
-    intermediate: 'bg-blue-500',
-    advanced: 'bg-green-500',
-  }
+    beginner: "bg-yellow-500",
+    intermediate: "bg-blue-500",
+    advanced: "bg-green-500",
+  };
 
-  const getSkillsByCategory = (category: Skill['category']) => {
-    return skills.filter((skill) => skill.category === category)
-  }
+  const getSkillsByCategory = (category: Skill["category"]) => {
+    return skills.filter((skill) => skill.category === category);
+  };
 
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -40,11 +40,11 @@ export function Skills({ skills }: SkillsProps) {
         >
           Skills
         </motion.h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, categoryIndex) => {
-            const categorySkills = getSkillsByCategory(category)
-            if (categorySkills.length === 0) return null
+            const categorySkills = getSkillsByCategory(category);
+            if (categorySkills.length === 0) return null;
 
             return (
               <motion.div
@@ -72,22 +72,30 @@ export function Skills({ skills }: SkillsProps) {
                       <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <motion.div
                           initial={{ width: 0 }}
-                          whileInView={{ width: '100%' }}
+                          whileInView={{ width: "100%" }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: index * 0.1 }}
-                          className={`h-2 rounded-full ${levelColors[skill.level]}`}
-                          style={{ width: skill.level === 'beginner' ? '33%' : skill.level === 'intermediate' ? '66%' : '100%' }}
+                          className={`h-2 rounded-full ${
+                            levelColors[skill.level]
+                          }`}
+                          style={{
+                            width:
+                              skill.level === "beginner"
+                                ? "33%"
+                                : skill.level === "intermediate"
+                                ? "66%"
+                                : "100%",
+                          }}
                         />
                       </div>
                     </div>
                   ))}
                 </div>
               </motion.div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
-

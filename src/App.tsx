@@ -1,7 +1,7 @@
-import { ThemeProvider } from './contexts/ThemeContext'
-import { Header } from './components/layout/Header'
-import { Footer } from './components/layout/Footer'
-import { Home } from './pages/Home'
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { Home } from "./pages/Home";
 
 /**
  * App 컴포넌트
@@ -18,8 +18,7 @@ function App() {
         <Footer />
       </div>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
-
+export default App;

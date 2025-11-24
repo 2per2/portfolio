@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Button } from '../common/Button'
-import type { Project } from '../../types/portfolio'
-import { ProjectDetailModal } from './ProjectDetailModal'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "../common/Button";
+import type { Project } from "../../types/portfolio";
+import { ProjectDetailModal } from "./ProjectDetailModal";
 
 interface ProjectsProps {
-  projects: Project[]
+  projects: Project[];
 }
 
 /**
@@ -13,7 +13,7 @@ interface ProjectsProps {
  * 프로젝트 목록을 카드 형태로 표시함
  */
 export function Projects({ projects }: ProjectsProps) {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
@@ -27,7 +27,7 @@ export function Projects({ projects }: ProjectsProps) {
         >
           Projects
         </motion.h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
@@ -63,7 +63,7 @@ export function Projects({ projects }: ProjectsProps) {
                     target="_blank"
                     variant="outline"
                     size="sm"
-                    onClick={e => e.stopPropagation()}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     GitHub
                   </Button>
@@ -73,7 +73,7 @@ export function Projects({ projects }: ProjectsProps) {
                     href={project.demoUrl}
                     target="_blank"
                     size="sm"
-                    onClick={e => e.stopPropagation()}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Demo
                   </Button>
@@ -82,9 +82,11 @@ export function Projects({ projects }: ProjectsProps) {
             </motion.div>
           ))}
         </div>
-        <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        <ProjectDetailModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </div>
     </section>
-  )
+  );
 }
-
